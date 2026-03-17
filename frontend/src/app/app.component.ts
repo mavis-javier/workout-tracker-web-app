@@ -1,5 +1,6 @@
 import {TuiRoot, TuiTitle} from '@taiga-ui/core';
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
+import {AppService} from './app.service';
 
 @Component({
   standalone: true,
@@ -11,5 +12,6 @@ import {Component, signal} from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class App {
-  protected name = signal('Mavis');
+  appService = inject(AppService);
+  protected name = signal(this.appService.getName());
 }
