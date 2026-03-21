@@ -1,18 +1,14 @@
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, signal, WritableSignal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class AppService {
-  private data: string[] = [];
-  private name: string = 'World';
   private http = inject(HttpClient);
 
-  // TODO: use http to fetch from DB
-  getData(): string[] {
-    return [...this.data];
-  }
-
-  getName(): string {
-    return this.name;
+  getUserData(id: number): Observable<{ id: number; firstName: string; lastName: string; email: string }> {
+    return this.http.get<{ id: number; firstName: string; lastName: string; email: string }>(
+      `api/user/${id}`
+    );
   }
 }
