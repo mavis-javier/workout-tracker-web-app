@@ -39,3 +39,6 @@ out/
 frontend/node_modules/
 frontend/.angular/
 backend/src/main/resources/static/
+
+# backend
+backend/src/main/resources/dev_local.env
