@@ -41,4 +41,4 @@ frontend/.angular/
 backend/src/main/resources/static/
 
 # backend
-backend/src/dev_local.env
+backend/dev_local.env
